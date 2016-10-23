@@ -20,12 +20,11 @@ li {
 	margin-bottom: 5px;
 }
 input {
-  margin-bottom: 1em;
-  width: 75%;
-  max-width: 300px;
+  width: 100%;
   min-width: 150px;
 }
 button {
+  margin-top: 1em;
   width: 30%;
   max-width: 130px;
   min-width: 80px;

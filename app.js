@@ -15,7 +15,9 @@ var charList = ["Luke Skywalker", "C-3PO", "R2-D2", "Darth Vader", "Leia Organa"
 "Jango Fett", "Zam Wesell", "Dexter Jettster", "Lama Su", "Taun We", "Jocasta Nu", "Ratts Tyerell", "R4-P17", "Wat Tambor", 
 "San Hill", "Shaak Ti", "Grievous", "Tarfful", "Raymus Antilles", "Sly Moore", "Tion Medon", "Finn", "Rey", "Poe Dameron", 
 "BB8", "Captain Phasma", "Padmé Amidala"];
-
+var options = {
+	data: charList
+}
 
 function getDataFromSWAPI(callback) {
 	var settings = {
@@ -145,6 +147,7 @@ function getImage(data) {
 }
 
 function onSearch() {
+	$("#search-box").easyAutocomplete(options);
 	// getCharacterList(SWAPIURL, appendCharacters);
 	$(".view-list").click(function(event) {
 		event.preventDefault();
