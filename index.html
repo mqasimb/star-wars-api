@@ -1,10 +1,11 @@
-<!-- Star wars character list, go through array and check if it is a character or not -->
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Star Wars Character Search</title>
 	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="main.css">
+	<link type="text/css" rel="stylesheet" href="grid.css">
 </head>
 <body>
 
@@ -12,16 +13,15 @@
 <div class="close-box">
 	<span>x</span>
 	</div>
-<div class="content-overlay">
-	
-	<div class="content-title"></div>
-	<div class="character-main">
-	<div class="character-image">
+<div class="content-overlay row">
+	<div class="content-title col-12"></div>
+	<div class="character-main row">
+	<div class="character-image col-6">
 	</div>
-	<div class="character-details">
+	<div class="character-details col-6">
 	</div>
 	</div>
-	<div class="article">
+	<div class="article col-12">
 	</div>
 </div>
 </div>
@@ -30,26 +30,26 @@
 <div class="close-box">
 	<span>x</span>
 	</div>
-<div class="content-overlay-list">
-<div class="character-list">
-	<div class="column-one"></div>
-	<div class="column-two"></div>
-	<div class="column-three"></div>
+<div class="content-overlay-list row">
+<div class="character-list col-12">
+	<div class="column-one col-4"></div>
+	<div class="column-two col-4"></div>
+	<div class="column-three col-4"></div>
 </div>
 </div>
 </div>
 
-<div class="title-search">
+<div class="title-search row row-2">
 <header>
-<h1>Star Wars Database</h1>
+<h1 class="col-12">Star Wars Database</h1>
 </header>
-        <form action="#" class="js-search-form">
+        <form action="#" class="js-search-form col-12">
         <div class="search-bar">
             <input type="text" id="search-box" name="search" placeholder="Search Character">
             <button>Search</button>
             </div>
         </form>
-        <div class="view-list">
+        <div class="view-list col-12">
         <a href="#">View Character List</a>
         </div>
         </div>
