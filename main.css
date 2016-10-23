@@ -120,6 +120,9 @@ form {
 .article, .character-details, ul {
 	font-size: 1em;
 }
+.no-results {
+	text-align: center;
+}
 ul {
 	list-style: none;
 	padding: 0;

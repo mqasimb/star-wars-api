@@ -68,6 +68,7 @@ function getArticleFromWIKIA(articleID, callback) {
     $.getJSON(WIKIAURLID, settings, callback);
 }
 function displaySWAPI(data) {
+	if(data.count > 0) {
     SWSearchTerm = data.results[0].name;
     getDataFromBING(getImage);
     getArticleIDFromWIKIA(articleIDDisplay);
@@ -84,6 +85,10 @@ function displaySWAPI(data) {
 	listofData += "</ul>";
 	htmlList = listofData.replace(/_/g, " ");
 	$('.character-details').html(htmlList);
+	}
+	else {
+	$('.character-details').html("<p class='no-results'>No Results! Please try a different search, or view the Star Wars Character list.</p>");	
+	}
 }
 
 function articleIDDisplay(data) {
