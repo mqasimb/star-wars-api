@@ -108,7 +108,6 @@ function appendCharacters(data) {
 	}
 }
 function displayCharacterList() {
-	console.log(charList.length);
 	var divisor = charList.length/3;
 	var list1= "<ul class='column-one'>";
 	var list2= "<ul class='column-two'>";
@@ -130,7 +129,6 @@ function displayCharacterList() {
 	$(".column-one").html(list1);
 	$(".column-two").html(list2);
 	$(".column-three").html(list3);
-	console.log(charList);
 }
 
 function getImage(data) {
