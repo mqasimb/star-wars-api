@@ -12,6 +12,7 @@ body, .content-overlay, .content-overlay-list {
 	font-family: 'Roboto', sans-serif;
 }
 ul.column-one, ul.column-two, ul.column-three {
+	margin-top: 10px;
 	width: 100%;
 }
 li {
@@ -132,7 +133,6 @@ ul {
 	list-style: none;
 	padding: 0;
 }
-
 img {
 	max-height: 75%;
 	max-width: 75%;
