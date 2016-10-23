@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link type="text/css" rel="stylesheet" href="main.css">
 	<link type="text/css" rel="stylesheet" href="grid.css">
 </head>
@@ -46,7 +47,9 @@
 </header>
         <form action="#" class="js-search-form col-12">
         <div class="search-bar col-12">
-            <input type="text" id="search-box" name="search" placeholder="Search Character">
+        <div class="search-input">
+            <input type="text" id="search-box" name="search" placeholder="Search Character" data-toggle="popover" data-placement="right" data-content="<p class='no-results'>No Results! Please try a different search, or view the Star Wars Character list.</p>" data-html="true">
+            </div>
             <button>Search</button>
             </div>
         </form>
@@ -55,6 +58,7 @@
         </div>
         </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="app.js" type="text/javascript" charset="utf-8"></script>  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="app.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

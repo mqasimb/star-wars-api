@@ -85,10 +85,14 @@ function displaySWAPI(data) {
 	listofData += "</ul>";
 	htmlList = listofData.replace(/_/g, " ");
 	$('.character-details').html(htmlList);
+	$("#search-box").popover('hide');
+	$(".character-list").css("visibility","hidden");
+	$(".content-overlay").css("visibility","visible");
+	$(".overlay-large").css("visibility","visible");
 	}
 	else {
-	$('.character-details').html("<p class='no-results'>No Results! Please try a different search, or view the Star Wars Character list.</p>");	
-	}
+	$("#search-box").popover('show');
+    }; 
 }
 
 function articleIDDisplay(data) {
@@ -164,9 +168,6 @@ function onSearch() {
 		event.preventDefault();
 		query = $("input").val();
 		getDataFromSWAPI(displaySWAPI);
-		$(".character-list").css("visibility","hidden");
-		$(".content-overlay").css("visibility","visible");
-		$(".overlay-large").css("visibility","visible");
 	});
 	$(".close-box").click(function(event) {
 	    event.stopPropagation();

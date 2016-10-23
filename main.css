@@ -123,6 +123,11 @@ form {
 .no-results {
 	text-align: center;
 }
+.search-input::after {
+	width: 100px;
+	height: 100px;
+	font-size: 10px;
+}
 ul {
 	list-style: none;
 	padding: 0;
