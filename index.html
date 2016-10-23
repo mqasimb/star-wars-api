@@ -1,3 +1,4 @@
+<!-- Star wars character list, go through array and check if it is a character or not -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +7,13 @@
 	<link type="text/css" rel="stylesheet" href="main.css">
 </head>
 <body>
+
 <div class="overlay-large">
+<div class="close-box">
+	<span>x</span>
+	</div>
 <div class="content-overlay">
+	
 	<div class="content-title"></div>
 	<div class="character-main">
 	<div class="character-image">
@@ -19,6 +25,21 @@
 	</div>
 </div>
 </div>
+
+<div class="overlay-large-list">
+<div class="close-box">
+	<span>x</span>
+	</div>
+<div class="content-overlay-list">
+<div class="character-list">
+	<div class="column-one"></div>
+	<div class="column-two"></div>
+	<div class="column-three"></div>
+</div>
+</div>
+</div>
+
+<div class="title-search">
 <header>
 <h1>Star Wars Database</h1>
 </header>
@@ -28,6 +49,10 @@
             <button>Search</button>
             </div>
         </form>
+        <div class="view-list">
+        <a href="#">View Character List</a>
+        </div>
+        </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="app.js" type="text/javascript" charset="utf-8"></script>  
 </body>

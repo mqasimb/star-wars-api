@@ -1,17 +1,73 @@
+/*use first child for parahraph*/
+
 * {
 	box-sizing: border-box;
+}
+html { 
+  background: url(starwars.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.column-one, .column-two, .column-three {
+	display: inline-block;
+	width: 32%;
+}
+ul.column-one, ul.column-two, ul.column-three {
+	width: 100%;
+}
+li {
+	text-align: center;
+	margin-bottom: 5px;
+}
+li a {
+	text-decoration: none;
+	color: #bab260;	
+}
+li a:hover {
+	color: white;
+}
+.character-image, .character-details {
+	vertical-align: middle;
+	height: 100%;
+}
+.title-search {
+	width: 66%;
+	background-color: rgba(19,19,19,0.8);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.title-search a {
+	text-decoration: none;
+	color: #bab260;
+}
+h1 {
+	margin: 0;
+}
+header {
+	padding: 60px 0;
+	color: #bab260;
+}
+form {
+	padding-bottom: 60px;
 }
 .content {
     position: absolute;
     z-index: 500;
 }
-.content-title, header, form {
+.view-list {
+	padding-bottom: 60px;
+}
+.content-title, header, form, .view-list{
     text-align: center;
 }
-.overlay-large, .content-overlay {
+.overlay-large, .content-overlay, .character-list, .overlay-large-list, .content-overlay-list {
     visibility: hidden;
 }
-.overlay-large{
+.overlay-large, .overlay-large-list {
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -21,7 +77,21 @@
 	z-index: 3;
 }
 
-.content-overlay {
+.close-box {
+	text-align: center;
+	display: inline-block;
+	font-size: 20px;
+	position: absolute;
+	color: #d3d1ca;
+	height: 50px;
+	width: 50px;
+	top: 5%;
+	left: 95%;
+	transform: translate(-50%, -50%); 
+	z-index: 1000;
+	cursor: pointer;
+}
+.content-overlay, .content-overlay-list {
 	position: absolute;
 	width: 80%;
 	height: 100%;
@@ -29,13 +99,17 @@
 	left: 50%;
 	transform: translate(-50%, -50%); 
 	z-index: 100;
-	background-color: rgba(0,0,0,.8);
-	color: white;
+	background-color: rgba(0,0,0,.9);
+	color: #d3d1ca;
+	font-family: 'Arial', sans-serif;
+	padding: 0 20px;
+	overflow: scroll;
+	overflow-x: hidden;
 }
 .character-image, .character-details {
 	text-align: center;
 	display: inline-block;
-	width: 40%;
+	width: 49%;
 }
 ul {
 	list-style: none;
