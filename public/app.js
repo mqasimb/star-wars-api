@@ -16,8 +16,15 @@ var charList = ["Luke Skywalker", "C-3PO", "R2-D2", "Darth Vader", "Leia Organa"
 "San Hill", "Shaak Ti", "Grievous", "Tarfful", "Raymus Antilles", "Sly Moore", "Tion Medon", "Finn", "Rey", "Poe Dameron", 
 "BB8", "Captain Phasma", "Padmé Amidala"];
 var options = {
-	data: charList
-}
+	data: charList,
+	  list: {	
+	    match: {
+	      enabled: true
+	    }
+	  },
+	  theme: "square"
+	};
+
 
 function getDataFromSWAPI(callback) {
 	var settings = {
@@ -170,7 +177,12 @@ function onSearch() {
 	$(".js-search-form").submit(function(event) {
 		event.preventDefault();
 		query = $("input").val();
-		getDataFromSWAPI(displaySWAPI);
+		if(query === '') {
+			return
+		}
+		else {
+			getDataFromSWAPI(displaySWAPI);
+		}
 	});
 	$(".close-box").click(function(event) {
 	    event.stopPropagation();
