@@ -3,7 +3,6 @@ var SWSearchTerm;
 var SWAPIURL = "https://swapi.co/api/people/";
 var WIKIAURLID = "https://starwars.wikia.com/api/v1/Articles/AsSimpleJson";
 var WIKIAURLSearch = "https://starwars.wikia.com/api/v1/Search/List";
-//Loading List each time takes some time
 var charList = ["Luke Skywalker", "C-3PO", "R2-D2", "Darth Vader", "Leia Organa", "Owen Lars", "Beru Whitesun lars", 
 "R5-D4", "Biggs Darklighter", "Obi-Wan Kenobi", "Anakin Skywalker", "Wilhuff Tarkin", "Chewbacca", "Han Solo", "Greedo", 
 "Jabba Desilijic Tiure", "Wedge Antilles", "Jek Tono Porkins", "Yoda", "Palpatine", "Boba Fett", "IG-88", "Bossk", 
@@ -14,7 +13,8 @@ var charList = ["Luke Skywalker", "C-3PO", "R2-D2", "Darth Vader", "Leia Organa"
 "Cordé", "Cliegg Lars", "Poggle the Lesser", "Luminara Unduli", "Barriss Offee", "Dormé", "Dooku", "Bail Prestor Organa", 
 "Jango Fett", "Zam Wesell", "Dexter Jettster", "Lama Su", "Taun We", "Jocasta Nu", "Ratts Tyerell", "R4-P17", "Wat Tambor", 
 "San Hill", "Shaak Ti", "Grievous", "Tarfful", "Raymus Antilles", "Sly Moore", "Tion Medon", "Finn", "Rey", "Poe Dameron", 
-"BB8", "Captain Phasma", "Padmé Amidala"];
+"BB8", "Captain Phasma", "Padmé Amidala"].sort();
+
 var options = {
 	data: charList,
 	  list: {	
@@ -22,8 +22,8 @@ var options = {
 	      enabled: true
 	    }
 	  },
-	  theme: "square"
-	};
+	theme: "square"
+};
 
 
 function getDataFromSWAPI(callback) {
@@ -40,27 +40,26 @@ function getCharacterList(URL, callback) {
 	$.getJSON(URL, callback);
 }
 function getDataFromBING(callback) {
-        var params = {
-            q: SWSearchTerm
-        };
-      
-        $.ajax({
-            url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
-            beforeSend: function(xhrObj){
-                // Request headers
-                xhrObj.setRequestHeader("Content-Type","multipart/form-data");
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","9863db6f1b7d41a8ad47fa015969167e");
-            },
-            type: "POST",
-            // Request body
-            data: "{body}",
-        })
-        .done(function(data) {
-            callback(data);
-        })
-        .fail(function() {
-            alert("error");
-        });
+    var params = {
+        q: SWSearchTerm
+    };
+    $.ajax({
+        url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
+        beforeSend: function(xhrObj){
+            // Request headers
+            xhrObj.setRequestHeader("Content-Type","multipart/form-data");
+            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","9863db6f1b7d41a8ad47fa015969167e");
+        },
+        type: "POST",
+        // Request body
+        data: "{body}",
+    })
+    .done(function(data) {
+        callback(data);
+    })
+    .fail(function() {
+        alert("error");
+    });
 }
 
 function getArticleIDFromWIKIA(callback) {
@@ -78,29 +77,30 @@ function getArticleFromWIKIA(articleID, callback) {
 }
 function displaySWAPI(data) {
 	if(data.count > 0) {
-    SWSearchTerm = data.results[0].name;
-    getDataFromBING(getImage);
-    getArticleIDFromWIKIA(articleIDDisplay);
-	var listofData = "<ul>";
-	for (var key in data.results[0]) {
-		if(key === "name" || key === "height" || key === "mass" || key === "hair_color" || key === "skin_color" || key === "eye_color" || key === "birth_year" || key === "gender")
-		if(typeof(data.results[0][key])==="string") {
-			listofData += '<li>'+key.toTitleCase()+': '+data.results[0][key].toTitleCase()+'</li>';
-	}
-		else {
-			listofData += '<li>'+key.toTitleCase()+': '+data.results[0][key]+'</li>';
+	    SWSearchTerm = data.results[0].name;
+	    getDataFromBING(getImage);
+	    getArticleIDFromWIKIA(articleIDDisplay);
+		var listofData = "<ul>";
+		for (var key in data.results[0]) {
+			if(key === "name" || key === "height" || key === "mass" || key === "hair_color" || key === "skin_color" || key === "eye_color" || key === "birth_year" || key === "gender") {
+				if(typeof(data.results[0][key])==="string") {
+					listofData += '<li>'+key.toTitleCase()+': '+data.results[0][key].toTitleCase()+'</li>';
+				}
+				else {
+					listofData += '<li>'+key.toTitleCase()+': '+data.results[0][key]+'</li>';
+				}
+			}
 		}
-	}
-	listofData += "</ul>";
-	htmlList = listofData.replace(/_/g, " ");
-	$('.character-details').html(htmlList);
-	$("#search-box").popover('hide');
-	$(".character-list").css("visibility","hidden");
-	$(".content-overlay").css("visibility","visible");
-	$(".overlay-large").css("visibility","visible");
+		listofData += "</ul>";
+		htmlList = listofData.replace(/_/g, " ");
+		$('.character-details').html(htmlList);
+		$("#search-box").popover('hide');
+		$(".character-list").css("visibility","hidden");
+		$(".content-overlay").css("visibility","visible");
+		$(".overlay-large").css("visibility","visible");
 	}
 	else {
-	$("#search-box").popover('show');
+		$("#search-box").popover('show');
     }; 
 }
 
@@ -155,7 +155,6 @@ function getImage(data) {
 
 function onSearch() {
 	$("#search-box").easyAutocomplete(options);
-	// getCharacterList(SWAPIURL, appendCharacters);
 	$(".view-list").click(function(event) {
 		event.preventDefault();
 		displayCharacterList();
@@ -194,23 +193,22 @@ function onSearch() {
 		$("img, ul, p").remove();
 	});
 }
+
 String.prototype.toTitleCase = function(){
-  var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
+  	var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
 
-  return this.replace(/[A-Za-z0-9\u00C0-\u00FF]+[^\s-]*/g, function(match, index, title){
-    if (index > 0 && index + match.length !== title.length &&
-      match.search(smallWords) > -1 && title.charAt(index - 2) !== ":" &&
-      (title.charAt(index + match.length) !== '-' || title.charAt(index - 1) === '-') &&
-      title.charAt(index - 1).search(/[^\s-]/) < 0) {
-      return match.toLowerCase();
-    }
-
-    if (match.substr(1).search(/[A-Z]|\../) > -1) {
-      return match;
-    }
-
-    return match.charAt(0).toUpperCase() + match.substr(1);
-  });
+	return this.replace(/[A-Za-z0-9\u00C0-\u00FF]+[^\s-]*/g, function(match, index, title) {
+		if (index > 0 && index + match.length !== title.length &&
+			match.search(smallWords) > -1 && title.charAt(index - 2) !== ":" &&
+			(title.charAt(index + match.length) !== '-' || title.charAt(index - 1) === '-') &&
+			title.charAt(index - 1).search(/[^\s-]/) < 0) {
+			return match.toLowerCase();
+		}
+	    if (match.substr(1).search(/[A-Z]|\../) > -1) {
+	      return match;
+	    }
+	    return match.charAt(0).toUpperCase() + match.substr(1);
+	});
 };
 
 onSearch();
