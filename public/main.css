@@ -4,11 +4,11 @@
 	box-sizing: border-box;
 }
 html { 
-  background: url(starwars.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+	background: url(starwars.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 body, .content-overlay, .content-overlay-list {
 	font-family: 'STARWARS';
@@ -22,14 +22,14 @@ li {
 	margin-bottom: 5px;
 }
 input {
-  width: 100%;
-  min-width: 150px;
+	width: 100%;
+	min-width: 150px;
 }
 button {
-  margin-top: 1em;
-  width: 30%;
-  max-width: 130px;
-  min-width: 80px;
+	margin-top: 1em;
+	width: 30%;
+	max-width: 130px;
+	min-width: 80px;
 }
 li a {
 	text-decoration: none;
@@ -86,7 +86,6 @@ form {
 	background-color: rgba(0,0,0,0.5);
 	z-index: 3;
 }
-
 .close-box {
 	text-align: center;
 	display: inline-block;
