@@ -25,6 +25,24 @@ var options = {
 	theme: "square"
 };
 
+var characters = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  // `states` is an array of state names defined in "The Basics"
+  local: charList
+});
+
+$('#bloodhound .typeahead').typeahead(
+	{
+		hint: true,
+		highlight: true,
+		minLength: 1
+	},
+	{
+		name: 'characters',
+		source: characters,
+});
+
 
 function getDataFromSWAPI(callback) {
 	var settings = {
@@ -154,7 +172,6 @@ function getImage(data) {
 }
 
 function onSearch() {
-	$("#search-box").easyAutocomplete(options);
 	$(".view-list").click(function(event) {
 		event.preventDefault();
 		displayCharacterList();
@@ -175,7 +192,7 @@ function onSearch() {
 	});
 	$(".js-search-form").submit(function(event) {
 		event.preventDefault();
-		query = $("input").val();
+		query = $("input#search-box").val();
 		if(query === '') {
 			return
 		}
